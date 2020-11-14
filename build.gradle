@@ -23,24 +23,27 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.flywaydb:flyway-core'
+    implementation 'net.javacrumbs.shedlock:shedlock-spring:4.15.1'
+    implementation 'net.javacrumbs.shedlock:shedlock-provider-jdbc-template:4.15.1'
+    implementation 'com.zaxxer:HikariCP:3.4.5'
 
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'io.r2dbc:r2dbc-h2'
 
     annotationProcessor 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'io.projectreactor:reactor-test'
     testImplementation 'org.springframework.security:spring-security-test'
-    testImplementation 'org.flywaydb.flyway-test-extensions:flyway-spring-test:7.0.0'
+//    testImplementation 'org.flywaydb.flyway-test-extensions:flyway-spring-test:7.0.0'
 }
 
 test {
